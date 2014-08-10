@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.5'
+gem 'rails'
 
 # MongoDB
-gem "mongoid", "2.0.0"
+gem "mongoid"
 gem "bson", "1.2.4"
 gem "bson_ext", "1.2.4"
 gem 'mongo-rails-instrumentation', "0.2.0"
@@ -11,14 +11,8 @@ gem "mongoid_rails_migrations", "0.0.10"
 gem "cells","3.6.5"
 gem "dalli","1.1.2"
 
-gem "redis", "2.1.1"
-
 # Vote 插件 for Mongoid
-gem 'voteable_mongoid', "0.6.0"
-
-# 分词
-gem 'chinese_pinyin', '0.3.0'
-gem 'rmmseg-cpp-huacnlee', '0.2.9'
+gem 'voteable_mongoid'
 
 # 用户系统
 gem 'devise', '1.2.rc2'
@@ -26,8 +20,11 @@ gem 'devise', '1.2.rc2'
 gem 'devise_invitable', '0.4.rc5'
 
 # 图片上传
-gem 'carrierwave', "0.5.3"
-gem 'mini_magick', "3.2"
+gem 'carrierwave'
+gem 'mini_magick'
+gem "carrierwave-mongoid"
+
+
 
 # 分页
 gem 'will_paginate', '3.0.pre'  
@@ -65,17 +62,14 @@ gem 'whenever', '0.6.2'
 gem "aws-ses", "0.4.2", :require => 'aws/ses'
 
 # Background Jobs
-gem "resque", '1.15.0', :require => "resque/server"
 gem "resque_mailer", '1.0.1'
 
 # Comet
 gem "juggernaut"
 
-# Diff 内容并输出 HTML 格式
-gem "htmldiff", :git => "git://github.com/huacnlee/htmldiff.git"
-
-gem "redis-search", "0.6.1"
-
 group :development do
 	gem 'rails-dev-boost-beta','0.1.2', :require => 'rails_development_boost'
 end
+
+gem 'rake', '0.8.7'
+

@@ -1,7 +1,6 @@
 # coding: utf-8
 class Topic
   include Mongoid::Document
-  include Redis::Search
   include BaseModel
   
   attr_accessor :current_user_id, :cover_changed, :followers_count_changed
@@ -40,11 +39,6 @@ class Topic
   def cover_small_changed?
     self.cover_changed?
   end
-  
-  redis_search_index(:title_field => :name,
-										 :prefix_index_enable => true,
-										 :score_field => :followers_count,
-                     :ext_fields => [:followers_count,:asks_count,:cover_small])
 
   # 敏感词验证
   before_validation :check_spam_words

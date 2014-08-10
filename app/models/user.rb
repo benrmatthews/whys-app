@@ -3,7 +3,6 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Voter
-  include Redis::Search
   include BaseModel
   
   devise :invitable, :database_authenticatable, :registerable,
@@ -88,10 +87,6 @@ class User
     self.answers_count_changed?
   end
   
-  redis_search_index(:title_field => :name, 
-										 :prefix_index_enable => true,
-										 :score_field => :score,
-                     :ext_fields => [:id, :slug,:avatar_small,:tagline, :score])
 
   # 敏感词验证
   before_validation :check_spam_words

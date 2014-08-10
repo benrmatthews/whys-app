@@ -89,5 +89,4 @@ Quora::Application.routes.draw do
     resources :notices
   end
 
-  mount Resque::Server, :at => "/cpanel/resque"
 end

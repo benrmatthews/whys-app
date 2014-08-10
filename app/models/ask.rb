@@ -2,7 +2,6 @@
 class Ask
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Redis::Search
   include BaseModel
   
   field :title
@@ -59,10 +58,6 @@ class Ask
   scope :only_ids, lambda { |id_array| any_in("_id" => (id_array ||= [])) } 
   # 问我的问题
   scope :asked_to, lambda { |to_user_id| where(:to_user_id => to_user_id) }
-
-  redis_search_index(:title_field => :title,
-                     :score_field => :score,
-                     :ext_fields => [:topics])
 
   before_save :fill_default_values
   after_create :create_log, :inc_counter_cache, :send_mails
