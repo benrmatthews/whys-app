@@ -3,23 +3,23 @@
     .tip { margin: 10px 0; }
   </style>
 <% end %>
-<h2>邀请你的朋友</h2>
+<h2>Invite your friends</h2>
 <div class="tip">
-  当您的朋友第一次来时<br />
-  请记得帮助他学会如何提问和回答，就像曾经有人帮助过你一样
+  When your friends come first<br />
+  Please remember to help him learn how to ask and answer questions, just like you have helped someone
 </div>
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name) do |f| %>
   <%= devise_error_messages! %>
-  <%= f.input :name, :label => "姓名" %>
-  <%= f.input :email, :label => "邮箱" %>
-  <%= f.input :tagline, :label => "他的特点", :input_html => { :class => "long" }, :hint => "用简短的话描述这个人的特点,如: 技术牛人,某某网站创始人" %>
-  <button type="submit" class="submit">发送邀请邮件</button>
+  <%= f.input :name, :label => "Name" %>
+  <%= f.input :email, :label => "Email" %>
+  <%= f.input :tagline, :label => "His features", :input_html => { :class => "long" }, :hint => "With a brief description of the person, then features, such as: Technical cattle, certain site founder" %>
+  <button type="submit" class="submit">Send an invitation email</button>
 <% end %>
 <% content_for :sidebar do %>
   <div class="box">
-    <h2>邀请说明</h2>
+    <h2>Description invitation</h2>
     <div class="content">
-      本站是不开放注册的，只有通过邀请才可以加入进来。
+      This site is not open for registration, and only by invitation before they can join.
     </div>
   </div>
 <% end %>

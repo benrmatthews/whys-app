@@ -1,4 +1,4 @@
-<h2>接受邀请，注册用户</h2>
+<h2>Accept the invitation, registered users户</h2>
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
@@ -7,16 +7,16 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <div class="actions">
-    <button type="submit" class="submit">提交注册信息</button>
+    <button type="submit" class="submit">Submit registration information</button>
   </div>
 <% end %>
 <div style="margin-top:20px;" class="sidebar">
   <div class="box">
-    <h2>说明</h2>
+    <h2>Description</h2>
     <div class="content">
-      你是通过他人邀请过来的。<br />
-      本站推崇实名制，请真正填写你的注册信息。<br />
-      注册成功以后，请仔细阅读一遍本站目前的内容。
+      You are invited over by others.<br />
+      Powered respected name system, please fill out your registration information true.<br />
+      After successful registration, please read carefully the current site again.
     </div>
   </div>
 </div>
