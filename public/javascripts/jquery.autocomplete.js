@@ -447,8 +447,8 @@ $.Autocompleter.defaults = {
 	inputFocus: true,
 	clickFire: false,
 	hideOnNoResult : false,
-  defaultHTML : "输入文本开始搜索",
-  noResultHTML : "没有找到相关内容.",
+  defaultHTML : "Enter  text to start searching",
+  noResultHTML : "No related content found.",
 	highlight: function(value, term) {
 		return value.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + term.replace(/([\^\$\(\)\[\]\{\}\*\.\+\?\|\\])/gi, "\\$1") + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
 	},
