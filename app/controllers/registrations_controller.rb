@@ -32,7 +32,6 @@ class RegistrationsController < ApplicationController
       end
     else
       clean_up_passwords(resource)
-      render_with_scope :new
     end
   end
 

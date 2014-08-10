@@ -1,10 +1,10 @@
 'zh-CN':
   devise:
     invitations:
-      send_instructions: '邀请邮件已经发送到了 %{email}.'
-      invitation_token_invalid: '邀请码不正确！'
-      updated: '你的密码设置成功，现在可以开始了。'
-      no_invitations_remaining: "没有邀请码。"
+      send_instructions: 'An invitation email has been sent to %{email}.'
+      invitation_token_invalid: 'The invitation token provided is not valid!'
+      updated: 'Your password was set successfully. You are now signed in.'
+      no_invitations_remaining: "No invitations remaining"
     mailer:
       invitation_instructions:
-        subject: '有人邀请你加入者也'
+        subject: 'Invitation instructions'

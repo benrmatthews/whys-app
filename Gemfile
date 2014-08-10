@@ -24,16 +24,13 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "carrierwave-mongoid"
 
-
-
 # 分页
 gem 'will_paginate', '3.0.pre'  
 gem 'memcache-client', '1.8.5'
 
 # OAuth
-gem 'omniauth', '0.2.0'
-gem "oa-openid", '0.2.0'
-gem "omniauth_china", "0.0.6"
+#gem 'omniauth', '0.2.0'
+#gem "oa-openid", '0.2.0'
 
 # 后台列表
 # gem 'wice_grid', '3.0.0.pre1'
