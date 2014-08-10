@@ -16,15 +16,15 @@
 <div id="topic" class="clearfix">
   <div class="cover topic_cover">
     <%= image_tag(@topic.cover.normal.url) %>
-    <div class="edit"><a href="#">修改图片</a></div>
+    <div class="edit"><a href="#">Modify pictures</a></div>
   </div>
   <div id="edit_topic_cover" style="display:none">
-    <h2>修改话题图片</h2>
+    <h2>Modify topic Pictures</h2>
     <%= simple_form_for(@topic,:class => "form",:html => { :multipart =>  true, :onsubmit => "App.loading();" }) do |f| %>
-      <%= f.input :cover, :label => "本地上传",:hint => "支持 jpg, gif, png 格式的图片，不要超过 2MB。建议图片尺寸大于 100×100。" %>
+      <%= f.input :cover, :label => "Local Upload",:hint => "Stand by jpg, gif, png Format images，Do not exceed 2MB. Recommend picture size larger than 100×100。" %>
       <div class="actions">
-        <button type="submit">上传图片</button>
-        <a href="#" onclick="$.facebox.close(); return false;">关闭</a>
+        <button type="submit">Upload Photos</button>
+        <a href="#" onclick="$.facebox.close(); return false;">Close</a>
       </div>
     <% end %>
   </div>
@@ -34,7 +34,7 @@
     <div class="summary">
       <span id="topic_summary"><%= md_body @topic.summary  %></span>
       <% if @topic.summary.blank? %>
-        <%= in_place_edit_tag @topic, :summary, :type => :textarea, :text_id => "topic_summary",:label => "添加补充资料" %>
+        <%= in_place_edit_tag @topic, :summary, :type => :textarea, :text_id => "topic_summary",:label => "Add additional information" %>
       <% else %>
         <%= in_place_edit_tag @topic, :summary, :type => :textarea, :text_id => "topic_summary" %>
       <% end %>
@@ -47,7 +47,7 @@
     <%= render "asks/ask", :item => item %>
   <% end %>
   <% if @asks.length == @per_page %>
-    <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></div>
+    <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">View More...</a></div>
   <% end %>
 </div>
 

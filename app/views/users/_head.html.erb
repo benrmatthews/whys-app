@@ -38,7 +38,7 @@
 
 <div class="tabs">
   <a<%= ' class=actived' if params[:action] == "show" %> href="<%= user_path(user.slug) %>">Home </a>
-	<a<%= ' class=actived' if params[:action] == "asked_to" %> href="<%= asked_to_user_path(user.slug) %>">Q<%= current_user == user ? "我" : (user.girl ? "She" : "He") %>(<%= Ask.normal.asked_to(user.id).count %>)</a>
+	<a<%= ' class=actived' if params[:action] == "asked_to" %> href="<%= asked_to_user_path(user.slug) %>">Questions (<%= Ask.normal.asked_to(user.id).count %>) </a>
   <a<%= ' class=actived' if params[:action] == "asked" %> href="<%= asked_user_path(user.slug) %>">Asked (<%= user.asks_count %>)</a>
   <a<%= ' class=actived' if params[:action] == "answered" %> href="<%= answered_user_path(user.slug) %>">Answered(<%= user.answered_ask_ids.count %>)</a>
 	<!-- <a<%= ' class=actived' if params[:action] == "following" %> href="<%= following_user_path(user.slug) %>">关注(<%= user.following_ids.count %>)</a>

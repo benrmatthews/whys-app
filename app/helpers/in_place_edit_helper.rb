@@ -3,7 +3,7 @@
 module InPlaceEditHelper
   def in_place_edit_tag(object, field, options={})
     return "" if not current_user
-    options.reverse_merge!(:label => "修改",
+    options.reverse_merge!(:label => "Modify",
                            :text_id => nil,
                            :rich => true, 
                            :type => :input,

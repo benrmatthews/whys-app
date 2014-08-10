@@ -48,7 +48,7 @@
         </div>
         <div id="add_ask">
           <input type="text" placeholder="Search questions, topics, people..." />
-          <a href="/asks/new" onclick="return addAsk();">I have a question</a>
+          <a href="/asks/new" onclick="return addAsk();">I have a question!</a>
         </div>
         <script type="text/javascript">
           Asks.completeAll($("#add_ask input"));
@@ -78,8 +78,8 @@
             <div id="sys_notice">
               <%= raw @notice.body %>
               <div class="info">
-                <span class="date"><%= l @notice.updated_at.getlocal, :format => :long %></span>
-                <a href="#" class="gray_button small" onclick="return App.hideNotice('<%= @notice.id %>');">我知道了</a>
+                <span class="date"><%= @notice.updated_at %></span>
+                <a href="#" class="gray_button small" onclick="return App.hideNotice('<%= @notice.id %>');">I know</a>
               </div>
             </div>
           <% end %>
@@ -110,9 +110,9 @@
           <a href="/about">About</a> • 
           <a href="http://benrmatthews.com/" target="_blank">Blog</a> •
           <a href="/register">How To Register</a> •
-          <a href="http://twitter.com/zheyecn" target="_blank">Twitter</a> •
-          <a href="mailto:nowazhu@gmail.com">Contact</a> •
-          <a href="mailto:huacnlee@gmail.com">Feedback</a>
+          <a href="http://twitter.com/benrmatthews" target="_blank">Twitter</a> •
+          <a href="mailto:benrmatthew@gmail.com">Contact</a> •
+          <a href="mailto:benrmatthew@gmail.com">Feedback</a>
           <a style="float:right;" href="/?force_format=mobile">Mobile version</a>
         </div>
         <div class="copyright">
