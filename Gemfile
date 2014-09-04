@@ -60,6 +60,7 @@ gem "aws-ses", "0.4.2", :require => 'aws/ses'
 
 # Background Jobs
 gem "resque_mailer", '1.0.1'
+gem 'resque'
 
 # Comet
 gem "juggernaut"
