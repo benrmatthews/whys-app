@@ -31,9 +31,9 @@
         <a href="#" onclick="return Asks.toggleComments('answer','<%= item.id %>');"><%= item.comments_count %> Comments</a>
       <% end %>
       <% if not owner? item %>
-        • <a rel="tipsyr" title="Thanked the respondents" class="thank<%= ' thanked' if thank_answered?(item) %>" href="#" onclick="return Asks.thankAnswer(this,'<%= item.id %>')">感谢</a>
+        • <a rel="tipsyr" title="Thanked the respondents" class="thank<%= ' thanked' if thank_answered?(item) %>" href="#" onclick="return Asks.thankAnswer(this,'<%= item.id %>')">Thanks</a>
       <% end %>
-      • <a rel="tipsyr" title="This answers the question considered irrelevant or no practical effect" class="notusefull<%= ' spamed' if spam_answered?(item) %>" onclick="return Asks.spamAnswer(this,'<%= item.id %>');" href="#">没有帮助</a>
+      • <a rel="tipsyr" title="This answers the question considered irrelevant or no practical effect" class="notusefull<%= ' spamed' if spam_answered?(item) %>" onclick="return Asks.spamAnswer(this,'<%= item.id %>');" href="#">Did not help</a>
       • <%= item.created_at %>
     </div>
   </div>

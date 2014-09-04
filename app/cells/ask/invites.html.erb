@@ -1,16 +1,16 @@
 <% if !@ask.blank? %>
   <div id="share_ask_box" class="box standard">
     <h2>
-      <a class="actived" href="<%= share_ask_path(@ask.id) %>" onclick="return Asks.toggleShareAsk(this,'share');" id="share_link">分享</a> <samp>或</samp>
-      <a href="#" onclick="return Asks.toggleShareAsk(this,'invite');">邀请他人回答此问题<% if @invites.count > 0 %> (<%= @invites.count %>)<% end %></a>
+      <a class="actived" href="<%= share_ask_path(@ask.id) %>" onclick="return Asks.toggleShareAsk(this,'share');" id="share_link">Share this</a> <samp> or </samp>
+      <a href="#" onclick="return Asks.toggleShareAsk(this,'invite');">invite others to answer this question<% if @invites.count > 0 %> (<%= @invites.count %>)<% end %></a>
     </h2>
     <div class="inner">
       <div class="share">
         <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=email"><span class="has_icon email">Email</span></a>
-        <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=url"><span class="has_icon url">转发地址</span></a>
+        <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=url"><span class="has_icon url">Forwarding address</span></a>
       </div>
       <div class="invite" style="display:none">
-        <input type="text" id="ask_to_answer" style="width:200px;" placeholder="搜索人" />
+        <input type="text" id="ask_to_answer" style="width:200px;" placeholder="Search people" />
         <div id="ask_invited_users" class="clearfix">
           <% for item in @invites %>
             <%= render("invited_user", :item => item) %>

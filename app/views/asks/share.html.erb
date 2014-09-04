@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <label>Mail subject:</label>
-        <input type="text" style="width:400px;" required="required" name="subject" value="<%= current_user.name %>向你推荐问题" />
+        <input type="text" style="width:400px;" required="required" name="subject" value="<%= current_user.name %> recommended a question to you" />
       </div>
       <div class="row">
         <label>Body:</label>
@@ -29,7 +29,7 @@ Access address：<%= ask_url(@ask.id) %></textarea>
         <label>Recommended text:</label>
         <textarea type="text" style="width:400px;height:50px;"><%= @ask.title %>
 <%= ask_url(@ask.id) %></textarea>
-        <p class="hint">You can copy the contents of the above, and forwards it to your microblogging QQ or send to your friends, they click on the link you can see this page.</p>
+        <p class="hint">You can copy the contents of the above, and send to your friends, they click on the link you can see this page.</p>
       </div>
       <div class="actions"><a href="#" onclick="$.facebox.close();return false;">Back</a></div>
     </div>

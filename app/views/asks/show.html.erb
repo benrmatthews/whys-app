@@ -50,7 +50,7 @@
       </div>
       <form data-remote="true" action="<%= ask_path(@ask.id) %>/update_topic" onsubmit="return Asks.beforeAddTopic(this);" method="post">
         <%= auth_token  %>
-        <input type="text" class="name" id="searchTopic" style="width:100px;" name="name" value="" placeholder="搜索话题" /> 
+        <input type="text" class="name" id="searchTopic" style="width:100px;" name="name" value="" placeholder="Search Topics" /> 
         <input type="hidden" name="add" value="1" /> 
         <button type="submit" class="small">Add to</button> 
         <a href="#" onclick="return Asks.toggleEditTopics(false);">Carry out</a>
@@ -83,7 +83,7 @@
     • <a href="#new_answer" onclick="return $('#new_answer .qeditor_preview').focus();">Add an answer</a>
     • <a href="#" onclick="return Asks.report(this);">Report</a>
     • <a rel="tipsyr" title="Do you think this is not a problem, or the answer can easily be found in Google, Baidu above" class="spam<%= ' spamed' if spamed?(@ask) %>" onclick="return Asks.spamAsk(this,'<%= @ask.id %>');" title="Question is<%= Setting.ask_spam_max %>A netizen considered bad problem after problem will be hidden." href="#">Rotten problem</a>
-    <% if !@ask.spams_count.blank? %>(<span id="spams_count"><%= @ask.spams_count %></span>人认为)<% end %>
+    <% if !@ask.spams_count.blank? %>(<span id="spams_count"><%= @ask.spams_count %></span> people think this is spam)<% end %>
     • <span class="date"><%= @ask.created_at %></span>
   </div>
 </div>
@@ -141,7 +141,7 @@
           <% if current_user.ask_followed?(@ask) %>
           <a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">Unfollow</a>
           <% else %>
-          <a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">Watch this question</a>
+          <a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">Follow this question</a>
           <% end %>
           <a href="#" class="dropdown" onclick="return Asks.dropdown_menu(this);"><span class="settings">Options</span></a>
         </div>
@@ -154,13 +154,13 @@
         <form action="" onsubmit="return Asks.redirect_ask_save(this);">
           <div class="field">
             <label>The problem“<%= @ask.title %>”Point:</label>
-            <input type="text" class="search" style="width:450px;" placeholder="搜索标题" />
+            <input type="text" class="search" style="width:450px;" placeholder="Search" />
             <input type="hidden" class="r_title" />
             <input type="hidden" class="r_id" />
           </div>
           <div class="actions">
             <button type="submit">Ok redirect</button>
-            <a style="margin-left:10px;" onclick="$.facebox.close(); return false;" href="#">取消</a>
+            <a style="margin-left:10px;" onclick="$.facebox.close(); return false;" href="#">Cancel</a>
           </div>
         </form>
       </div>
@@ -181,9 +181,9 @@
 			<h2>Problem state</h2>
 			<div class="inner">
 				<p>Recent Activity：<%= @ask.last_updated_at ? @ask.last_updated_at : (@ask.answered_at ? @ask.answered_at : @ask.updated_at) %></p>
-				<p>Been accessed <%= @ask.views_count %> 次，<%= @ask.followers.count %> 人关注了该问题</p>
+				<p>This question has been viewed <%= @ask.views_count %> 次，<%= @ask.followers.count %> times</p>
 				<% if @ask.user %>
-				<p><%= user_name_tag(@ask.user) %> 创建了该问题</p>
+				<p><%= user_name_tag(@ask.user) %> asked this question</p>
 				<% end %>
         <%= render_cell :ask, :followers, :ask => @ask %>
 			</div>

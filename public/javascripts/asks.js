@@ -32,7 +32,7 @@ var Asks = {
         if(!App.requireUser(res,"text")){
           return false;
         }
-        $(el).replaceWith('<span class="muted">已关注</span>');
+        $(el).replaceWith('<span class="muted">has concerns</span>');
 				// $(el).parent().parent().fadeOut("slow");
     });
     return false;
@@ -54,12 +54,12 @@ var Asks = {
   dropdown_menu : function(el){
     html = '<ul class="menu">';
     if(ask_redirected == true){
-      html += '<li><a onclick="return Asks.redirect_ask_cancel(this);" href="#">取消重定向</a></li>';
+      html += '<li><a onclick="return Asks.redirect_ask_cancel(this);" href="#">Cancel Redirection</a></li>';
     }
     else{
-      html += '<li><a onclick="return Asks.redirect_ask(this);" href="#">问题重定向</a></li>';
+      html += '<li><a onclick="return Asks.redirect_ask(this);" href="#">Redirect issue</a></li>';
     }
-    html += '<li><a onclick="return Asks.report(this);" href="#">举报</a></li>';
+    html += '<li><a onclick="return Asks.report(this);" href="#">Report</a></li>';
     $(el).jDialog({
       title_visiable : false,
       width : 160,
@@ -107,7 +107,7 @@ var Asks = {
           $.facebox.close();
         }
         else{
-          alert("循环重定向，不允许这么关联。");
+          alert("Redirect loop，Does not allow such association.");
           return false;
         }
     });
@@ -126,10 +126,10 @@ var Asks = {
       $("#redirected_tip").remove();
     }
     else{
-      label_text = "问题已重定向到: "
+      label_text = "Problem has been redirected to: "
       ask_link = "/asks/" + id + "?nr=1&rf=" + rf_id;
       if(type == "rf"){
-        label_text = "重定向来自: ";
+        label_text = "Redirect from: ";
         ask_link = "/asks/" + id + "?nr=1";
       }
       html = '<div id="redirected_tip"><div class="container">';
@@ -150,7 +150,7 @@ var Asks = {
       selectFirst : false,
       clickFire : true,
       hideOnNoResult : false,
-      noResultHTML : "没有找到类似的内容，<a href='#' onclick='return addAsk();'>添加一个问题</a>",
+      noResultHTML : "Did not find similar content，<a href='#' onclick='return addAsk();'>Add a problem</a>",
       formatItem : function(data, i, total){
         klass = data[data.length - 1];
         switch(klass){
@@ -280,9 +280,9 @@ var Asks = {
     else{
       html += '<span class="name">'+data[0]+'</span>';
     }
-    html += '<span class="scate">话题</span>';
+    html += '<span class="scate">Topics</span>';
     html += '</p>';
-    html += '<p class="count">'+count+' 个关注者</p></div>';
+    html += '<p class="count">'+count+' Followers</p></div>';
     return html;
   },
 
@@ -334,14 +334,14 @@ var Asks = {
       return false;
     }
     $(el).addClass("thanked");
-    $(el).text("已感谢");
+    $(el).text("Has thanked");
     $(el).click(function(){ return false });
     $.get("/answers/"+id+"/thank");
     return false;
   },
 
   spamAsk : function(el, id){
-    if(!confirm("多人评价为烂问题后，此问题将会被屏蔽，而且无法撤销！\n你确定要这么评价吗？")){
+    if(!confirm("After evaluation of rotten people problem，This issue will be shielded，And can not be revoked！\n Are you sure you want to evaluate it so？")){
       return false;
     }
 
@@ -365,7 +365,7 @@ var Asks = {
   spamAnswer : function(el, id){
     App.loading();
     $(el).addClass("spamed");
-    $(el).text("已提交");
+    $(el).text("Has been submitted");
     $.get("/answers/"+id+"/spam",function(count){
       if(!App.requireUser(count,"text")){
         return false;
@@ -419,7 +419,7 @@ var Asks = {
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/follow",{}, function(res){
       App.loading(false);
-      $(el).replaceWith('<a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">取消关注</a>');
+      $(el).replaceWith('<a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">Unfollow</a>');
     });
     return false;
   },
@@ -429,7 +429,7 @@ var Asks = {
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/unfollow",{}, function(res){
       App.loading(false);
-      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">关注此问题</a>');
+      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">Watch this issue</a>');
     });
     return false;
   },
@@ -488,7 +488,7 @@ var Asks = {
     }
     else {
       if(vtype == "up"){
-        $(".author",answer).after("<div class=\"votes\"><span class=\"num\">"+new_up_count+"</span> 票</div>");
+        $(".author",answer).after("<div class=\"votes\"><span class=\"num\">"+new_up_count+"</span> Ticket </div>");
       }
     }
 
@@ -532,11 +532,11 @@ var Asks = {
   },
 
   showSuggestTopics : function(topics){
-    html = '<div id="ask_suggest_topics" class="ask"><div class="container"><label>根据您的问题，我们推荐这些话题(点击添加):</label>';
+    html = '<div id="ask_suggest_topics" class="ask"><div class="container"><label>Depending on your problem，We recommend these topics(Click to Add):</label>';
     for(var i=0;i<topics.length;i++) {
       html += '<a href="#" class="topic" onclick="return Asks.addSuggestTopic(this,\''+topics[i]+'\');">'+topics[i]+'</a>';
     }
-    html += '<a class="gray_button small" href="#" onclick="return Asks.closeSuggestTopics();">完成</a>';
+    html += '<a class="gray_button small" href="#" onclick="return Asks.closeSuggestTopics();">Cancel</a>';
     html += "</div></div>";
     $("#main").before(html);
   },
