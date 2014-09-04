@@ -55,9 +55,9 @@ class HomeController < ApplicationController
     @hot_topics = @asks.inject([]) { |memo, ask|
       memo += ask.topics
     }
-    @hot_topics.delete("者也")
-    @hot_topics.delete("知乎")
-    @hot_topics.delete("反馈")
+    @hot_topics.delete("Who also")
+    @hot_topics.delete("Know almost")
+    @hot_topics.delete("Feedback")
     @hot_topics.delete("zheye")
     @hot_topics.delete("Quora")
     @hot_topics.delete("quora")
@@ -109,7 +109,7 @@ class HomeController < ApplicationController
                   .desc(:answered_at,:id)
                   .paginate(:page => params[:page], :per_page => @per_page)
 
-    set_seo_meta("我屏蔽掉的问题")
+    set_seo_meta("I muted the question")
 
     if params[:format] == "js"
       render "/asks/index.js"
@@ -144,7 +144,7 @@ class HomeController < ApplicationController
   end
 
   def about
-    set_seo_meta("关于")
+    set_seo_meta("With respect to")
     @users = User.any_in(:email => Setting.admin_emails)
   end
   
@@ -162,12 +162,12 @@ class HomeController < ApplicationController
   end
 
   def report
-    name = "访客"
+    name = "Visitors"
     if current_user
       name = current_user.name
     end
     ReportSpam.add(params[:url],params[:desc],name)
-    flash[:notice] = "举报信息已经提交，谢谢你。"
+    flash[:notice] = "Report information has been submitted，thank you."
     redirect_to params[:url]
   end
 

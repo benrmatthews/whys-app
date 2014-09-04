@@ -12,7 +12,7 @@
       <%= f.hidden_field :commentable_type %>
       <%= f.hidden_field :commentable_id %>
       <%= f.text_area :body, :class => "body" %>
-      <button type="submit">评论</button>
+      <button type="submit">Comments</button>
       <a href="#" onclick="$('#<%= @type %>_<%= @id %>_comments').hide(); return false;">Close</a>
     <% end %>
   </div>

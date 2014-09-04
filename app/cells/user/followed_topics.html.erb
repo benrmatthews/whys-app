@@ -1,6 +1,6 @@
 <% if !@followed_topics.blank? %>
 <div class="box gray">
-	<h2>关注 <a href="<%= following_topics_user_path(@user.slug) %>"><%= @user.followed_topic_ids.size %>个话题</a></h2>
+	<h2>Watching <a href="<%= following_topics_user_path(@user.slug) %>"><%= @user.followed_topic_ids.size %> topic</a></h2>
 	<ul class="followed-item topic-listing">
 		<% for topic in @followed_topics %>
       <li>
@@ -10,9 +10,9 @@
         <% if @current_user %>
           <div class="action">
             <% if @current_user.topic_followed?(topic) %>
-            <a class="flat_button small" href="#" onclick="return Topics.unfollow(this, '<%= topic.name %>','small');">取消关注</a>
+            <a class="flat_button small" href="#" onclick="return Topics.unfollow(this, '<%= topic.name %>','small');">Unfollow</a>
             <% else %>
-            <a class="green_button small" href="#" onclick="return Topics.follow(this, '<%= topic.name %>','small');">关注</a>
+            <a class="green_button small" href="#" onclick="return Topics.follow(this, '<%= topic.name %>','small');">Follow</a>
             <% end %>
           </div>
         <% end %>

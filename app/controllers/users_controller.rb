@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @per_page = 10
     @asks = Ask.normal.recent.find(@user.answered_ask_ids)
                   .paginate(:page => params[:page], :per_page => @per_page)
-    set_seo_meta("#{@user.name}回答过的问题")
+    set_seo_meta("#{@user.name}Questions answered")
     if params[:format] == "js"
       render "/users/answered_asks.js"
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @per_page = 10
     @asks = Ask.normal.recent.asked_to(@user.id)
                   .paginate(:page => params[:page], :per_page => @per_page)
-    set_seo_meta("问#{@user.name}的问题")
+    set_seo_meta("Q#{@user.name}questions")
     if params[:format] == "js"
       render "/asks/index.js"
     else
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @per_page = 10
     @asks = @user.asks.normal.recent
                   .paginate(:page => params[:page], :per_page => @per_page)
-    set_seo_meta("#{@user.name}问过的问题")
+    set_seo_meta("#{@user.name}Asked questions")
     if params[:format] == "js"
       render "/asks/index.js"
     end
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     @topics = @user.followed_topics.desc("$natural")
                   .paginate(:page => params[:page], :per_page => @per_page)
     
-    set_seo_meta("#{@user.name}关注的话题")
+    set_seo_meta("#{@user.name}Topic of concern")
     if params[:format] == "js"
       render "following_topics.js"
     end
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     @followers = @user.following.desc("$natural")
                   .paginate(:page => params[:page], :per_page => @per_page)
     
-    set_seo_meta("#{@user.name}关注的人")
+    set_seo_meta("#{@user.name}The person concerned")
     if params[:format] == "js"
       render "followers.js"
     else
@@ -114,25 +114,25 @@ class UsersController < ApplicationController
 
 		if current_user
       Authorization.create_from_hash(auth, current_user)
-      flash[:notice] = "成功绑定了 #{provider_name} 帐号。"
+      flash[:notice] = "Successfully bound #{provider_name} Account number."
 			redirect_to edit_user_registration_path
 		elsif @user = Authorization.find_from_hash(auth)
       sign_in @user
-			flash[:notice] = "登陆成功。"
+			flash[:notice] = "Successful landing."
 			redirect_to "/"
 		else
       if Setting.allow_register
         @new_user = Authorization.create_from_hash(auth, current_user) #Create a new user
         if @new_user.errors.blank?
           sign_in @new_user
-          flash[:notice] = "欢迎来自 #{provider_name} 的用户，你的帐号已经创建成功。"
+          flash[:notice] = "Welcome from #{provider_name} users，Your account has been created successfully."
           redirect_to "/"
         else
-          flash[:notice] = "#{provider_name}的帐号提供信息不全，无法直接登陆，请先注册。"
+          flash[:notice] = "#{provider_name}The account provided incomplete information，Can not directly log，Please register."
           redirect_to "/register"
         end
       else
-        flash[:alert] = "你还没有注册用户。"
+        flash[:alert] = "You are not a registered user."
         redirect_back_or_default "/login"
       end
 		end

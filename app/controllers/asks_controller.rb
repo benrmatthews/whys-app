@@ -7,12 +7,12 @@ class AsksController < ApplicationController
   def index
     @per_page = 20
     @asks = Ask.normal.recent.includes(:user).paginate(:page => params[:page], :per_page => @per_page)
-    set_seo_meta("所有问题")
+    set_seo_meta("All questions")
   end
 
   def search
     # @asks = Ask.search_title(params["w"],:limit => 20)[:items]
-    set_seo_meta("关于“#{params[:w]}”的搜索结果")
+    set_seo_meta("With respect to“#{params[:w]}”Search Results")
     render "index"
   end
 
@@ -74,7 +74,7 @@ class AsksController < ApplicationController
       when "email"
         UserMailer.simple(params[:to], params[:subject], params[:body].gsub("\n","<br />")).deliver
         @success = true
-        @msg = "已经将问题连接发送到了 #{params[:to]}"
+        @msg = "The question has been sent to the connected #{params[:to]}"
       end
     end
 
@@ -132,7 +132,7 @@ class AsksController < ApplicationController
   def create
     @ask = Ask.find_by_title(params[:ask][:title])
     if @ask
-      flash[:notice] = "已有相同的问题存在，已重定向。"
+      flash[:notice] = "Have the same problem，Redirected."
       redirect_to ask_path(@ask.id)
       return 
     end
@@ -143,7 +143,7 @@ class AsksController < ApplicationController
 
     respond_to do |format|
       if @ask.save
-        format.html { redirect_to(ask_path(@ask.id), :notice => '问题创建成功。') }
+        format.html { redirect_to(ask_path(@ask.id), :notice => 'Question created successfully') }
         format.json
       else
         format.html { render :action => "new" }
@@ -158,7 +158,7 @@ class AsksController < ApplicationController
 
     respond_to do |format|
       if @ask.update_attributes(params[:ask])
-        format.html { redirect_to(ask_path(@ask.id), :notice => '问题更新成功。') }
+        format.html { redirect_to(ask_path(@ask.id), :notice => 'Question updated successfully.') }
         format.json
       else
         format.html { render :action => "edit" }

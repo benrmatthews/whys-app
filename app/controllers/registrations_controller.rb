@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
 
   # GET /resource/sign_up
   def new
-    set_seo_meta("注册")
+    set_seo_meta("Sign up")
     build_resource({})
     render_with_scope :new
   end
@@ -37,7 +37,7 @@ class RegistrationsController < ApplicationController
 
   # GET /resource/edit
   def edit
-    set_seo_meta("个人设置")
+    set_seo_meta("Personal Settings")
     render_with_scope :edit
   end
 

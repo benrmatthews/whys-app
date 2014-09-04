@@ -1,13 +1,13 @@
 <div id="new_inbox">
-  <h2>发送私信</h2>
+  <h2>Send message</h2>
   <%= simple_form_for(@inbox,:url => "/inbox", :remote => true) do |f| %>
     <div class="inputs">
-      <b>给:</b> <input id="new_inbox_to_s" type="text" class="text" />
+      <b>To:</b> <input id="new_inbox_to_s" type="text" class="text" />
       <input type="hidden" id="new_inbox_to" name="to" class="text" />
       <textarea name="body" style="margin-top:5px;width:450px;height:120px;"></textarea>
     </div>
     <div class="actions">
-      <button class="submit">发送</button> 或者 <%= link_to '取消', asks_path %>
+      <button class="submit">Send</button> or <%= link_to 'cancel', asks_path %>
     </div>
   <% end %>
   <script type="text/javascript">

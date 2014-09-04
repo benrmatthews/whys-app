@@ -48,9 +48,9 @@ class TopicsController < ApplicationController
     @topic.current_user_id = current_user.id
     @topic.cover = params[:topic][:cover]
     if @topic.save
-      flash[:notice] = "话题封面上传成功。"
+      flash[:notice] = "Topics cover uploaded successfully."
     else
-      flash[:alert] = "话题封面上传失败，请检查你上传的图片适合符合格式要求。"
+      flash[:alert] = "Topics cover upload failed，please check the picture you upload meets the format requirements."
     end
     redirect_to topic_path(@topic.name)
   end

@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base
       authenticate_user!
     elsif format == "json"
       if current_user.blank?
-        render :json => { :success => false, :msg => "你还没有登陆。" }
+        render :json => { :success => false, :msg => "You have not landed." }
         return false
       end
     elsif format == "text"

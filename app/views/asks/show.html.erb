@@ -181,7 +181,7 @@
 			<h2>Problem state</h2>
 			<div class="inner">
 				<p>Recent Activity：<%= @ask.last_updated_at ? @ask.last_updated_at : (@ask.answered_at ? @ask.answered_at : @ask.updated_at) %></p>
-				<p>This question has been viewed <%= @ask.views_count %> 次，<%= @ask.followers.count %> times</p>
+				<p>This question has been viewed <%= @ask.views_count %> times and is followed by <%= @ask.followers.count %> people</p>
 				<% if @ask.user %>
 				<p><%= user_name_tag(@ask.user) %> asked this question</p>
 				<% end %>
