@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     @followers = @user.followers.desc("$natural")
                   .paginate(:page => params[:page], :per_page => @per_page)
     
-    set_seo_meta("关注#{@user.name}的人")
+    set_seo_meta("Watch #{@user.name} people")
     if params[:format] == "js"
       render "followers.js"
     end
