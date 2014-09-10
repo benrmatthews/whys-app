@@ -82,7 +82,7 @@
     <% end %>
     • <a href="#new_answer" onclick="return $('#new_answer .qeditor_preview').focus();">Add an answer</a>
     • <a href="#" onclick="return Asks.report(this);">Report</a>
-    • <a rel="tipsyr" title="Do you think this is not a problem, or the answer can easily be found in Google, Baidu above" class="spam<%= ' spamed' if spamed?(@ask) %>" onclick="return Asks.spamAsk(this,'<%= @ask.id %>');" title="Question is<%= Setting.ask_spam_max %>A netizen considered bad problem after problem will be hidden." href="#">Rotten problem</a>
+    • <a rel="tipsyr" title="Do you think this is not a problem, or the answer can easily be found in Google, Baidu above" class="spam<%= ' spamed' if spamed?(@ask) %>" onclick="return Asks.spamAsk(this,'<%= @ask.id %>');" title="Question is<%= Setting.ask_spam_max %>A netizen considered bad problem after problem will be hidden." href="#">Spam</a>
     <% if !@ask.spams_count.blank? %>(<span id="spams_count"><%= @ask.spams_count %></span> people think this is spam)<% end %>
     • <span class="date"><%= @ask.created_at %></span>
   </div>
@@ -178,7 +178,7 @@
     <% end %>
 
 		<div class="box standard gray">
-			<h2>Problem state</h2>
+			<h2>Questions Stats</h2>
 			<div class="inner">
 				<p>Recent Activity：<%= @ask.last_updated_at ? @ask.last_updated_at : (@ask.answered_at ? @ask.answered_at : @ask.updated_at) %></p>
 				<p>This question has been viewed <%= @ask.views_count %> times and is followed by <%= @ask.followers.count %> people</p>

@@ -419,7 +419,7 @@ var Asks = {
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/follow",{}, function(res){
       App.loading(false);
-      $(el).replaceWith('<a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">Unfollow</a>');
+      $(el).replaceWith('<a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow;">Unfollow</a>');
     });
     return false;
   },
@@ -429,7 +429,7 @@ var Asks = {
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/unfollow",{}, function(res){
       App.loading(false);
-      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">Watch this issue</a>');
+      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow;">Follow</a>');
     });
     return false;
   },

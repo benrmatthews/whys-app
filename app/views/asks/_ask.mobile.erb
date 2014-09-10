@@ -1,7 +1,7 @@
 <div class="ask" ask-id="<%= item.id %>">
   <div class="title"><%= ask_title_tag(item) %></div>
     <div class="info">
-      <%= user_name_tag(item.user) %> Questions raised
+      Asked by <%= user_name_tag(item.user) %>
       • <%= item.answers_count %> Answers  
 			<% if current_user %>
 				<% if current_user.ask_followed?(item) %>
