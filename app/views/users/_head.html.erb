@@ -26,7 +26,7 @@
 		<div class="bio">
 			<span id="user_bio">
 	      <% if @user.bio.blank? and (not owner?@user) %>
-	        <%= @user.name %>Not had time to write his personal introduction.
+	        <%= @user.name %> has not had time to write their bio.
 	      <% else %>
 	        <%= md_body @user.bio %>
 	      <% end %>
@@ -48,7 +48,7 @@
 
 <% if not owner? user %>
 <div id="ask_to_user" class="simple_form">
-  <h3>对<%= user.name %>Question:</h3>
+  <h3>Ask <%= user.name %> a question:</h3>
   <form action="/asks" method="post">
     <div class="row">
       <%= auth_token %>
