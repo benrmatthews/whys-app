@@ -2,6 +2,6 @@
   "name": "Whys",
   "description": "An open source Quora clone",
   "repository": "https://github.com/benrmatthews/whys-app",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "logo": "https://raw.githubusercontent.com/benrmatthews/whys-app/master/public/images/whys-logo.png",
   "keywords": ["quora", "rails", "clone"]
 }
