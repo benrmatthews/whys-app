@@ -5,7 +5,7 @@ gem 'rails'
 gem "mongoid"
 gem "bson", "1.2.4"
 gem "bson_ext", "1.2.4"
-gem 'mongo-rails-instrumentation', "0.2.0"
+# gem 'mongo-rails-instrumentation', "0.2.0"
 gem "mongoid-eager-loading","0.3.1"
 gem "mongoid_rails_migrations", "0.0.10"
 gem "cells","3.6.5"
@@ -56,7 +56,7 @@ gem 'mongoid_wice_grid', '4.0.0', :require => "wice_grid"
 # Crontab 辅助
 gem 'whenever', '0.6.2'
 # AWS SES
-gem "aws-ses", "0.4.2", :require => 'aws/ses'
+# gem "aws-ses", "0.4.2", :require => 'aws/ses'
 
 # Background Jobs
 gem "resque_mailer", '1.0.1'
