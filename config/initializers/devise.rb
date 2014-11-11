@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "support@huacnlee.com"
+  config.mailer_sender = "ben@montfort.io"
 
   # Configure the class responsible to send e-mails.
   config.mailer = "DeviseMailer"
@@ -13,6 +13,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/mongoid'
+  require 'devise_invitable'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is

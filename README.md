@@ -13,3 +13,4 @@ A working demo can be found here: https://whys.herokuapp.com/
 * Install redis and resque to ensure search works properly
 * Create Log Model
 * IE bugs
+* Fix Devise invitable (currently causes conflict)
